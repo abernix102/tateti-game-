@@ -31,12 +31,7 @@ const Square = ({ children,isSelected, updateBoard, index }) => {
 };
 
 const App = () => {
-  const [score, setScore] = useState(
-    {
-      player1: 0,
-      player2: 0
-    }
-  );
+  const [score, setScore] = useState({player1: 0,player2: 0});
   const [board, setBoard] = useState(Array(9).fill(null));
   const [turn, setTurn] = useState(TURNS.X);
   const [winner, setWinner] = useState(null)
@@ -50,20 +45,13 @@ const App = () => {
     setTurn(newTurn)
     const newWinner = winnerTurn(newBoard)
     if (newWinner) {
-      if (newWinner === TURNS.X) {
-        setScore(prevScore => ({
-          ...prevScore,
-          player1: prevScore.player1 + 1
-        }))
+      if(newWinner === TURNS.X){
+        setScore(state => ({...state, player1: state.player1 + 1}))
       }else if(newWinner === TURNS.O){
-        setScore(prevScore => ({
-          ...prevScore,
-          player2: prevScore.player2 + 1
-        }))
+        setScore(state => ({...state, player2: state.player2 + 1}))
       }
       setWinner(newWinner);
     }
-    
   };
 
   const winnerTurn = (boardcheck) => {
