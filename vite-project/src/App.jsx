@@ -107,9 +107,6 @@ const App = () => {
                 <header className="win">
                   {winner && <Square>{winner}</Square>}
                 </header>
-                <button onClick={resetGame} className="win">
-                  reset
-                </button>
                 <button onClick={resetGame}>
                   reset game
                 </button>
